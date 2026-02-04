@@ -50,13 +50,7 @@ Discuss, bluff, and find out who is hiding the truth!
 - CSS3 (Glassmorphism UI)
 - Vanilla JavaScript
 
----
 
-## 📱 Live Demo
-
-(You can enable GitHub Pages to host this)
-
----
 
 ## 🏢 Credits
 
