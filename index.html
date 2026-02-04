@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Maraimugam | The Hidden Role Party Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Modern font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+<!-- =================================================
+   SETUP SCREEN
+================================================= -->
+<div id="setupScreen" class="screen">
+
+    <!-- 🔥 GAME TITLE -->
+    <h1>🕵️ Maraimugam</h1>
+
+    <div class="card-ui">
+
+        <label>Number of Players</label>
+        <input type="number" id="players" min="3" max="20" value="5">
+
+        <label>Number of Imposters</label>
+        <input type="number" id="imposterCount" min="1" max="5" value="1">
+
+        <label>Select Category</label>
+
+        <div class="category-group">
+            <button class="cat-btn active" data-value="actors">🎭 Actors</button>
+            <button class="cat-btn" data-value="animals">🐯 Animals</button>
+            <button class="cat-btn" data-value="states">🗺 States</button>
+            <button class="cat-btn" data-value="movies">🎬 Movies</button>
+            <button class="cat-btn" data-value="players">🏆 Players</button>
+            <button class="cat-btn" data-value="foods">🍛 Foods</button>
+        </div>
+
+        <button class="primary" onclick="startGame()">Start Game</button>
+
+    </div>
+</div>
+
+
+
+<!-- =================================================
+   GAME SCREEN
+================================================= -->
+<div id="gameScreen" class="screen hidden">
+
+    <h2 id="playerLabel" class="player-label"></h2>
+
+    <div class="card" id="card">
+        <div class="inner" id="cardInner">
+
+            <div class="front">
+                Hold to Reveal 👀
+            </div>
+
+            <div class="back" id="wordText"></div>
+
+        </div>
+    </div>
+
+    <button class="primary" onclick="nextPlayer()">
+        Next Player →
+    </button>
+
+</div>
+
+
+
+<!-- =================================================
+   RESULT SCREEN
+================================================= -->
+<div id="resultScreen" class="screen hidden">
+
+    <h2>🎤 Discuss & Find the Imposter</h2>
+
+    <h1 id="starterText"></h1>
+
+    <button class="primary" onclick="revealImposters()">
+        Reveal Imposters
+    </button>
+
+    <p id="revealBox" class="reveal-box hidden"></p>
+
+    <button class="primary" onclick="resetGame()">
+        New Round
+    </button>
+
+</div>
+
+
+
+<!-- =================================================
+   FOOTER (Branding)
+================================================= -->
+<footer class="footer">
+
+    <div class="footer-content">
+
+       
+
+        <p class="footer-sub">
+            A Product by Adyah AI
+        </p>
+
+        <p class="footer-quote">
+            “Trust no one. Question everyone. Discover the hidden truth.”
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

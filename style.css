@@ -1,0 +1,335 @@
+/* =============================
+   GLOBAL
+============================= */
+
+*{
+    box-sizing:border-box;
+    -webkit-tap-highlight-color: transparent;
+    user-select:none;
+}
+
+body{
+    margin:0;
+    font-family:"Inter", system-ui, sans-serif;
+
+    /* 🔥 richer premium gradient */
+    background:
+        radial-gradient(circle at 15% 20%, #8ea2ff 0%, transparent 40%),
+        radial-gradient(circle at 85% 80%, #b16cff 0%, transparent 40%),
+        linear-gradient(135deg,#4e5bdc,#7b3fe4);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100svh;
+
+    color:white;
+}
+
+
+/* =============================
+   SCREEN LAYOUT
+============================= */
+
+.screen{
+    width:95%;
+    max-width:430px;
+    text-align:center;
+
+    animation:fadeIn .35s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(8px)}
+    to{opacity:1; transform:none}
+}
+
+.hidden{
+    display:none;
+}
+
+
+/* =============================
+   GLASS CARD (SETUP BOX)
+============================= */
+
+.card-ui{
+    backdrop-filter:blur(18px);
+
+    background:rgba(255,255,255,0.18);
+    border:1px solid rgba(255,255,255,0.25);
+
+    padding:28px;
+    border-radius:24px;
+
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,0.30);
+}
+
+
+/* =============================
+   TITLES
+============================= */
+
+h1{
+    font-size:34px;
+    font-weight:800;
+    margin-bottom:18px;
+    letter-spacing:0.5px;
+}
+
+label{
+    font-weight:600;
+    font-size:14px;
+    opacity:0.9;
+    text-align:left;
+}
+
+
+/* =============================
+   INPUTS
+============================= */
+
+input{
+    padding:14px;
+    border-radius:14px;
+    border:none;
+
+    font-size:16px;
+
+    background:rgba(255,255,255,0.9);
+    outline:none;
+
+    transition:.15s;
+}
+
+input:focus{
+    transform:scale(1.03);
+}
+
+
+/* =============================
+   CATEGORY BUTTON GRID
+============================= */
+
+.category-group{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+
+.cat-btn{
+    padding:12px 6px;
+
+    border-radius:14px;
+    border:none;
+
+    font-weight:600;
+    font-size:14px;
+
+    background:rgba(255,255,255,0.25);
+    color:white;
+
+    cursor:pointer;
+
+    transition:.18s;
+}
+
+.cat-btn:hover{
+    background:rgba(255,255,255,0.35);
+}
+
+/* selected */
+.cat-btn.active{
+    background:linear-gradient(135deg,#ffd54f,#ffb300);
+    color:black;
+
+    transform:scale(1.05);
+    box-shadow:0 6px 16px rgba(0,0,0,.25);
+}
+
+
+/* =============================
+   PRIMARY BUTTON
+============================= */
+
+.primary{
+    padding:15px;
+
+    border:none;
+    border-radius:16px;
+
+    font-weight:700;
+    font-size:16px;
+
+    background:linear-gradient(135deg,#ffd54f,#ffb300);
+    color:black;
+
+    cursor:pointer;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.25);
+
+    transition:.15s;
+}
+
+.primary:active{
+    transform:scale(0.95);
+}
+
+
+/* =============================
+   PLAYER LABEL
+============================= */
+
+.player-label{
+    font-size:30px;
+    font-weight:800;
+    margin-bottom:12px;
+    letter-spacing:1px;
+}
+
+/* POP ANIMATION */
+.player-pop{
+    animation:pop .35s ease;
+}
+
+@keyframes pop{
+    0%   {transform:scale(.6); opacity:0}
+    60%  {transform:scale(1.25)}
+    100% {transform:scale(1)}
+}
+
+
+/* =============================
+   CARD
+============================= */
+
+.card{
+    width:72vw;
+    max-width:270px;
+    aspect-ratio:3/4;
+
+    margin:34px auto;
+
+    perspective:1000px;
+
+    /* 🔥 floating animation */
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-8px)}
+}
+
+.inner{
+    width:100%;
+    height:100%;
+    position:relative;
+
+    transform-style:preserve-3d;
+    transition:transform .4s cubic-bezier(.2,.8,.2,1);
+}
+
+.flipped{
+    transform:rotateY(180deg);
+}
+
+
+/* =============================
+   CARD SIDES
+============================= */
+
+.front,.back{
+    position:absolute;
+    width:100%;
+    height:100%;
+
+    border-radius:26px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:24px;
+    font-weight:800;
+
+    backface-visibility:hidden;
+
+    box-shadow:
+        0 25px 50px rgba(0,0,0,.35);
+}
+
+/* front */
+.front{
+    background:linear-gradient(135deg,#1d1d1d,#2b2b2b);
+}
+
+/* back */
+.back{
+    background:linear-gradient(135deg,#ffe082,#ffca28);
+    color:black;
+    transform:rotateY(180deg);
+}
+
+
+/* =============================
+   REVEAL BOX
+============================= */
+
+.reveal-box{
+    margin-top:18px;
+    padding:14px 16px;
+
+    border-radius:16px;
+
+    font-size:17px;
+    font-weight:700;
+
+    background:rgba(0,0,0,0.35);
+    border:1px solid rgba(255,255,255,0.2);
+
+    animation:fadeIn .3s ease;
+}
+
+/* =============================
+   FOOTER
+============================= */
+
+.footer{
+    position:fixed;
+    bottom:8px;
+    width:100%;
+    text-align:center;
+
+    font-size:12px;
+    opacity:0.85;
+
+    pointer-events:none; /* not clickable */
+}
+
+.footer-content{
+    backdrop-filter:blur(8px);
+}
+
+.footer-title{
+    font-size:14px;
+    font-weight:800;
+    letter-spacing:1px;
+    margin:0;
+}
+
+.footer-sub{
+    margin:2px 0;
+    font-weight:600;
+}
+
+.footer-quote{
+    font-style:italic;
+    font-size:11px;
+    opacity:0.75;
+}
